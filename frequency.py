@@ -47,6 +47,14 @@ def plot_word_cloud(figsize, dpi, wc):
     plt.show()
 
 
+def save_word_cloud_fig(figsize, dpi, wc, filename):
+    plt.figure(figsize=figsize, dpi=dpi)
+    plt.axes([0,0,1,1])
+    plt.imshow(wc.recolor(color_func=deep_purple_func), interpolation='nearest', aspect='equal')
+    plt.axis('off')
+    plt.savefig(filename, bbox_inches='tight', pad_inches=0, dpi=dpi)
+
+
 def get_word_cloud_svg(figsize, dpi, wc):
     img_data = StringIO()
     plt.figure(figsize=figsize, dpi=dpi)
