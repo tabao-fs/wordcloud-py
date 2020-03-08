@@ -69,7 +69,7 @@ def get_word_cloud_svg(figsize, dpi, wc):
 
 def create_word_cloud(data):
     wc = generate_word_cloud(width, height, data)
-    plot_word_cloud(figsize, dpi, wc)
+    get_word_cloud_svg(figsize, dpi, wc)
 
 
 def get_mask(filename):
