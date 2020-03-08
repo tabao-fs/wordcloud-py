@@ -41,8 +41,8 @@ def generate_word_cloud(width, height, data):
 
 def plot_word_cloud(figsize, dpi, wc):
     plt.figure(figsize=figsize, dpi=dpi)
-    plt.imshow(wc, interpolation='bilinear')
-    plt.imshow(wc.recolor(color_func=deep_purple_func), interpolation='bilinear')
+    plt.axes([0,0,1,1])
+    plt.imshow(wc.recolor(color_func=deep_purple_func), interpolation='nearest', aspect='equal')
     plt.axis('off')
     plt.show()
 
@@ -55,6 +55,7 @@ def get_word_cloud_svg(figsize, dpi, wc):
     plt.axis('off')
     plt.savefig(img_data, format='svg', bbox_inches='tight', pad_inches=0, dpi=dpi)
     img_data.seek(0)
+
     return img_data.getvalue()
 
 
