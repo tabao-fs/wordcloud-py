@@ -33,7 +33,7 @@ color = [
 ]
 
 
-def deep_purple_func(word, font_size, position, orientation, random_state=None, **kwargs):
+def custom_color(word, font_size, position, orientation, random_state=None, **kwargs):
     return color[random.randint(0, len(color) - 1)]
 
 
@@ -51,7 +51,7 @@ def generate_word_cloud(width, height, data):
 def plot_word_cloud(figsize, dpi, wc):
     plt.figure(figsize=figsize, dpi=dpi)
     plt.axes([0,0,1,1])
-    plt.imshow(wc.recolor(color_func=deep_purple_func), interpolation='nearest', aspect='equal')
+    plt.imshow(wc.recolor(color_func=custom_color), interpolation='nearest', aspect='equal')
     plt.axis('off')
     plt.show()
 
@@ -59,7 +59,7 @@ def plot_word_cloud(figsize, dpi, wc):
 def save_word_cloud_fig(figsize, dpi, wc, filename):
     plt.figure(figsize=figsize, dpi=dpi)
     plt.axes([0,0,1,1])
-    plt.imshow(wc.recolor(color_func=deep_purple_func), interpolation='nearest', aspect='equal')
+    plt.imshow(wc.recolor(color_func=custom_color), interpolation='nearest', aspect='equal')
     plt.axis('off')
     plt.savefig(filename, bbox_inches='tight', pad_inches=0, dpi=dpi)
 
@@ -68,7 +68,7 @@ def get_word_cloud_svg(figsize, dpi, wc):
     img_data = StringIO()
     plt.figure(figsize=figsize, dpi=dpi)
     plt.axes([0,0,1,1])
-    plt.imshow(wc.recolor(color_func=deep_purple_func), interpolation='nearest', aspect='equal')
+    plt.imshow(wc.recolor(color_func=custom_color), interpolation='nearest', aspect='equal')
     plt.axis('off')
     plt.savefig(img_data, format='svg', bbox_inches='tight', pad_inches=0, dpi=dpi)
     img_data.seek(0)
